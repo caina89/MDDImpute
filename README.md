@@ -1,6 +1,6 @@
 # MDDImpute
 
-Code to reproduce analyses in MDD phenotype imputation paper: Dahl A., et al, Phenotype integration improves power and preserves specificity in biobank-based genetic studies of MDD, BioRxiv 2022 (https://www.biorxiv.org/content/10.1101/2022.08.15.503980v1.abstract)
+Steps to reproduce analyses in MDD phenotype imputation paper: Dahl A., et al, Phenotype integration improves power and preserves specificity in biobank-based genetic studies of MDD, BioRxiv 2022 (https://www.biorxiv.org/content/10.1101/2022.08.15.503980v1.abstract)
 
 ## Phenotype Imputation 
 
@@ -78,5 +78,26 @@ PRSice_linux --base $a.ma --cov $covar --num-auto 22 \
 done 
 ```
 
+## PRS Pleiotropy 
 
+R scripts for gathering and summarising PRS prediction R2s across folds is in the PRS_pleio directory:
+
+### PRS Pleiotropy analysis 
+
+getdata.R: script used to gather R2s from all fold predictions 
+utilities.R: misc functions  
+
+### Downsampling analysis 
+
+We downsampled GPpsy (N=3xx) and SoftImpAll (N=xxx) to N=50K, 100K and 200K to investigate the effect of GWAS sample size (for PRS construction) on PRS Pleiotropy. This analysis is described in full in Supplementary Methods of the paper. 
+
+downsample.R: scripts used to gather R2s and plot PRS Pleiotropy across different down-sampled Ns, and for plotting Supplementary Figures 9 and 10 
+
+### Same set of SNPs across all PRS analysis 
+We investigated how PRS Pleiotropy will change if we used a single set of SNPs for PRS construction across all GWAS. Two sets of SNPs are chosen:
+
+a) xx LD-pruned SNPs (r2 < 0.2) in UKBiobank White-British individuals (used in FlashPCA to generate White-British specific PCs used in all UKBiobank GWAS in this study) 
+b) xx-xx SNPs at P threshold 0.5 from PGC29 GWAS (threshold determined in Wray et al 2018) clumped for prediction of LifetimeMDD in UKBiobank (numbers are slightly different per fold in 10-fold cross validation) 
+
+samesnps.R: scripts used to gather R2s and plot PRS Pleiotropy across different PRS when a) or b) SNPs are used, and for plotting Supplementary Figure 11 
 
