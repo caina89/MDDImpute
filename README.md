@@ -30,7 +30,7 @@ rs28527770	1	751756	C	T	0.1211	0.0174567405994606	0.0142902	0.221795	107823
 rs3115860	1	753405	C	A	0.1277	0.0269534695602576	0.0138726	0.0520048	109006
 ```
 
-In this paper we report 6 different MTAG runs; command line for one example (MTAG.GPpsy, where the input GWAS are LifetimeMDD and GPpsy) is shown below 
+In this paper we report 6 different MTAG runs; command line for one example (MTAG.GPpsy, where the input GWAS are LifetimeMDD and GPpsy) is shown below. Note MTAG is written in Python2.  
 
 ```
 conda activate python2
