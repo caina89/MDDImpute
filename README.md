@@ -59,13 +59,11 @@ rs4081333	T	C	0.0926773784007	0.0295976364389436	0.0267	0.2681	42455
 rs12064046	G	T	0.091	0.0307994715535284	0.0268	0.2507	42455
 ```
 
-We use the following PRSice command line, switching --binary-target T/F for binary and quantitative target phenotypes 
+We use the following PRSice command line, switching --binary-target T/F for binary and quantitative target phenotypes. We performed PRS in 10-fold cross validation in UKBiobank for in-sample PRS analysis, so phenotype/genotype files are in folds, to do this without having separate files one can use --remove/--keep options 
 
 ```
-## outdir = output directory 
-## we performed PRS in 10-fold cross validation in UKBiobank, so phenotype/genotype files are in folds, to do this without having separate files one can use --remove/--keep options 
-a=$prs
-b=$targetpheno
+a=$GWAS ## summary statistics for SoftImpute, Autocomplete or MTAG GWAS 
+b=$targetpheno ## 217 target phenotypes in UKBiobank as detailed in Supplementary Table 1 of the paper 
 for test in {1..10}
 do 
 PRSice_linux --base $a.ma --cov $covar --num-auto 22 \
