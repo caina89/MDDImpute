@@ -44,7 +44,7 @@ python mtag.py \
 
 All summary statistics of GWAS described in the paper (SoftImpute, AutoComplete, MTAG, external cohorts) are available on figshare: https://doi.org/10.6084/m9.figshare.19604335.v1 
 
-## PRS Predictions 
+## PRS predictions in UKBiobank
 
 PRS predictions are run with PRSice (v2) and we take the best p value thresholds for constructing PRS for each prediction run (floating p value threshold across all runs. 
 
@@ -78,6 +78,9 @@ PRSice_linux --base $a.ma --cov $covar --num-auto 22 \
 done 
 ```
 
+## PRS predictions in external cohorts 
+
+
 ## PRS Pleiotropy 
 
 R scripts for gathering and summarising PRS prediction R2s across folds is in the ```PRS_pleio``` directory:
@@ -100,4 +103,3 @@ a) xx LD-pruned SNPs (r2 < 0.2) in UKBiobank White-British individuals (used in 
 b) xx-xx SNPs at P threshold 0.5 from PGC29 GWAS (threshold determined in Wray et al 2018) clumped for prediction of LifetimeMDD in UKBiobank (numbers are slightly different per fold in 10-fold cross validation) 
 
 ```samesnps.R```: scripts used to gather R2s and plot PRS Pleiotropy across different PRS when a) or b) SNPs are used, and for plotting Supplementary Figure 11 
-
