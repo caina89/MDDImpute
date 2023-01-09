@@ -59,7 +59,7 @@ rs4081333	T	C	0.0926773784007	0.0295976364389436	0.0267	0.2681	42455
 rs12064046	G	T	0.091	0.0307994715535284	0.0268	0.2507	42455
 ```
 
-We use the following PRSice-2 command line, switching --binary-target T/F for binary and quantitative target phenotypes. We performed PRS in 10-fold cross validation in UKBiobank for in-sample PRS analysis, so phenotype/genotype files are in folds, to do this without having separate files one can use --remove/--keep options 
+We use the following PRSice-2 command line, switching --binary-target T/F for binary and quantitative target phenotypes. We performed PRS in 10-fold cross validation in UKBiobank for in-sample PRS analysis, so phenotype/genotype files are in folds, to do this without having separate files one can use --remove/--keep options. Confidence intervals for prediction R2 are derived from standard errors between estimates from the 10 folds. 
 
 ```
 a=$GWAS ## summary statistics for SoftImpute, Autocomplete or MTAG GWAS 
@@ -80,7 +80,7 @@ done
 
 ## PRS prediction using training GWAS from external cohorts 
 
-PRS from following training GWAS are used for comparison with PRS from observed, imputed and MTAG GWAS on LifetimeMDD in UKBiobank
+PRS from following training GWAS are used for comparison with PRS from observed, imputed and MTAG GWAS on LifetimeMDD in UKBiobank; PRSice-2 is used for these PRS for each of the 10 folds for cross validation in UKBiobank, same as shown as above. Confidence intervals for prediction R2 are derived from standard errors between estimates from the 10 folds. 
 
 |ABBREVIATION	|COLLECTION STRATEGY	|STUDY TYPE	|N	|Neff	|SAMPLE PREV	|POPULATION PREV|
 |---|---|---|---|---|---|---|
@@ -90,7 +90,7 @@ PRS from following training GWAS are used for comparison with PRS from observed,
 
 ## PRS predictions in external cohorts 
 
-PRS from observed, imputed and MTAG GWAS on LifetimeMDD in UKBiobank are used to predict MDD in the following cohorts
+PRS from observed, imputed and MTAG GWAS on LifetimeMDD in UKBiobank are used to predict MDD in the following cohorts; PRSice-2 is used for these PRS, same as shown as above. Confidence intervals for prediction R2s are derived using bootstrapping shown in ```bootstrap.R``` in the ```PRS_predict``` directory 
 
 |ABBREVIATION	|COLLECTION STRATEGY	|STUDY TYPE	|N	|Neff	|SAMPLE PREV	|POPULATION PREV|
 |---|---|---|---|---|---|---|
