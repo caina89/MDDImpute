@@ -1,3 +1,6 @@
+library(ggplot2)
+load("utilities.R")
+
 ## get data 
 tests=c(1:10)
 data=NULL
@@ -194,7 +197,7 @@ forplot4=forplot4[which(forplot4$pheno%in%spheno),]
 forplot4$order=soft$orderpleio[match(forplot4$pheno,soft$pheno)]
 forplot4$SampleSize=factor(forplot4$SampleSize, levels=c("DS_50K","DS_100K","Full"))
 
-library(ggplot2)
+## plot (Supplementary Figure 10)
 pdf("Downsample.PRSPleio.pdf",height=6,width=8,useDingbats=FALSE)
 p1=ggplot(forplot1,aes(meanratio,dsmeanratio,colour=SampleSize))+geom_point()+geom_smooth(method="lm")+theme_bw()
 p1=p1+ylim(0,1)+xlim(0,1)+geom_abline(intercept = 0, slope = 1)+ggtitle("GPpsy")+scale_colour_brewer(palette="Set1")
@@ -218,3 +221,101 @@ p4=p4+theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank
 panel.background = element_blank(), axis.line = element_line(colour = "black"), legend.position="right")
 multiplot(p1,p3,p2,p4,cols=2)
 dev.off()
+
+## GPpsy: do sample size affect p value thresholds  
+forplot1=dsummary[which(dsummary$PRSPheno=="GPpsy"),]
+forplot1=forplot1[which(forplot1$pheno%in%gpheno),]
+forplot1$order=gppsy$orderpleio[match(forplot1$pheno,gppsy$pheno)]
+forplot1$SampleSize=factor(forplot1$SampleSize, levels=c("DS_50K","DS_100K","Full"))
+
+## plot (Supplementary Figure 11)
+pdf("GPpsy.Pthreshold.pdf",height=8,width=12,useDingbats=FALSE)
+p1=ggplot(forplot1,aes(pheno,meanthresh,group=SampleSize,colour=SampleSize))+geom_point()+geom_smooth()
+p1=p1+theme_bw()+theme(axis.text.x=element_blank())
+p1=p1+scale_colour_brewer(palette="Set1")+guides(colour=guide_legend(nrow=2,byrow=TRUE))
+p1=p1+xlab("Phenotype") + ylab("Mean (P Threshold)")
+p1=p1+theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+panel.background = element_blank(), axis.line = element_line(colour = "black"), legend.position="bottom")
+p3=ggplot(forplot1,aes(pheno,sdthresh,group=SampleSize,colour=SampleSize))+geom_point()+geom_smooth()
+p3=p3+theme_bw()+theme(axis.text.x=element_blank())
+p3=p3+scale_colour_brewer(palette="Set1")+guides(colour=guide_legend(nrow=2,byrow=TRUE))
+p3=p3+xlab("Phenotype") + ylab("SD (P Threshold)")
+p3=p3+theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+panel.background = element_blank(), axis.line = element_line(colour = "black"), legend.position="bottom")
+p5=ggplot(forplot1,aes(pheno,meansnp,group=SampleSize,colour=SampleSize))+geom_point()+geom_smooth()
+p5=p5+theme_bw()+theme(axis.text.x=element_blank())
+p5=p5+scale_colour_brewer(palette="Set1")+guides(colour=guide_legend(nrow=2,byrow=TRUE))
+p5=p5+xlab("Phenotype") + ylab("Mean (NSNPs)")
+p5=p5+theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+panel.background = element_blank(), axis.line = element_line(colour = "black"), legend.position="bottom")
+p6=ggplot(forplot1,aes(pheno,sdsnp,group=SampleSize,colour=SampleSize))+geom_point()+geom_smooth()
+p6=p6+theme_bw()+theme(axis.text.x=element_blank())
+p6=p6+scale_colour_brewer(palette="Set1")+guides(colour=guide_legend(nrow=2,byrow=TRUE))
+p6=p6+xlab("Phenotype") + ylab("SD (NSNPs)")
+p6=p6+theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+panel.background = element_blank(), axis.line = element_line(colour = "black"), legend.position="bottom")
+p7=ggplot(forplot1,aes(pheno,cvr2,group=SampleSize,colour=SampleSize))+geom_point()+geom_smooth()
+p7=p7+theme_bw()+theme(axis.text.x=element_blank())
+p7=p7+scale_colour_brewer(palette="Set1")+guides(colour=guide_legend(nrow=2,byrow=TRUE))
+p7=p7+xlab("Phenotype") + ylab("SD (R2/mean(R2))")
+p7=p7+theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+panel.background = element_blank(), axis.line = element_line(colour = "black"), legend.position="bottom")
+p8=ggplot(forplot1,aes(pheno,sdratio,group=SampleSize,colour=SampleSize))+geom_point()+geom_smooth()
+p8=p8+theme_bw()+theme(axis.text.x=element_blank())
+p8=p8+scale_colour_brewer(palette="Set1")+guides(colour=guide_legend(nrow=2,byrow=TRUE))
+p8=p8+xlab("Phenotype") + ylab("SD (PRS Pleiotropy)")
+p8=p8+theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+panel.background = element_blank(), axis.line = element_line(colour = "black"), legend.position="bottom")
+multiplot(p1,p6,p3,p7,p5,p8,cols=3)
+dev.off()
+
+## SoftImpAll: do sample size affect p value thresholds 
+forplot1=dsummary[which(dsummary$PRSPheno=="SoftImpAll"),]
+forplot1=forplot1[which(forplot1$pheno%in%spheno),]
+forplot1$order=soft$orderpleio[match(forplot1$pheno,soft$pheno)]
+forplot1$SampleSize=factor(forplot1$SampleSize, levels=c("DS_50K","DS_100K","Full"))
+
+pdf("SoftImpAll.Pthreshold.pdf",height=8,width=12,useDingbats=FALSE)
+p1=ggplot(forplot1,aes(pheno,meanthresh,group=SampleSize,colour=SampleSize))+geom_point()+geom_smooth()
+p1=p1+theme_bw()+theme(axis.text.x=element_blank())
+p1=p1+scale_colour_brewer(palette="Set1")+guides(colour=guide_legend(nrow=2,byrow=TRUE))
+p1=p1+xlab("Phenotype") + ylab("Mean (P Threshold)")
+p1=p1+theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+panel.background = element_blank(), axis.line = element_line(colour = "black"), legend.position="bottom")
+p3=ggplot(forplot1,aes(pheno,sdthresh,group=SampleSize,colour=SampleSize))+geom_point()+geom_smooth()
+p3=p3+theme_bw()+theme(axis.text.x=element_blank())
+p3=p3+scale_colour_brewer(palette="Set1")+guides(colour=guide_legend(nrow=2,byrow=TRUE))
+p3=p3+xlab("Phenotype") + ylab("SD (P Threshold)")
+p3=p3+theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+panel.background = element_blank(), axis.line = element_line(colour = "black"), legend.position="bottom")
+p5=ggplot(forplot1,aes(pheno,meansnp,group=SampleSize,colour=SampleSize))+geom_point()+geom_smooth()
+p5=p5+theme_bw()+theme(axis.text.x=element_blank())
+p5=p5+scale_colour_brewer(palette="Set1")+guides(colour=guide_legend(nrow=2,byrow=TRUE))
+p5=p5+xlab("Phenotype") + ylab("Mean (NSNPs)")
+p5=p5+theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+panel.background = element_blank(), axis.line = element_line(colour = "black"), legend.position="bottom")
+p6=ggplot(forplot1,aes(pheno,sdsnp,group=SampleSize,colour=SampleSize))+geom_point()+geom_smooth()
+p6=p6+theme_bw()+theme(axis.text.x=element_blank())
+p6=p6+scale_colour_brewer(palette="Set1")+guides(colour=guide_legend(nrow=2,byrow=TRUE))
+p6=p6+xlab("Phenotype") + ylab("SD (NSNPs)")
+p6=p6+theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+panel.background = element_blank(), axis.line = element_line(colour = "black"), legend.position="bottom")
+p7=ggplot(forplot1,aes(pheno,cvr2,group=SampleSize,colour=SampleSize))+geom_point()+geom_smooth()
+p7=p7+theme_bw()+theme(axis.text.x=element_blank())
+p7=p7+scale_colour_brewer(palette="Set1")+guides(colour=guide_legend(nrow=2,byrow=TRUE))
+p7=p7+xlab("Phenotype") + ylab("SD (R2/mean(R2))")
+p7=p7+theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+panel.background = element_blank(), axis.line = element_line(colour = "black"), legend.position="bottom")
+p8=ggplot(forplot1,aes(pheno,sdratio,group=SampleSize,colour=SampleSize))+geom_point()+geom_smooth()
+p8=p8+theme_bw()+theme(axis.text.x=element_blank())
+p8=p8+scale_colour_brewer(palette="Set1")+guides(colour=guide_legend(nrow=2,byrow=TRUE))
+p8=p8+xlab("Phenotype") + ylab("SD (PRS Pleiotropy)")
+p8=p8+theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+panel.background = element_blank(), axis.line = element_line(colour = "black"), legend.position="bottom")
+multiplot(p1,p6,p3,p7,p5,p8,cols=3)
+dev.off()
+
+
+
+
+
