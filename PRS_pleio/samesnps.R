@@ -44,7 +44,7 @@ for (snp in snps){
     data$MDD.R2=mdd$PRS.R2[match(data$prs.test,mdd$prs.test)]
     data$ratio=data$PRS.R2/data$MDD.R2
     write.table(data,paste0(wdir,"/",snp,".PRSPleio.txt"),sep="\t",quote=F,row.names=T,col.names=T)
-    dsummary=ddply(pgcdata,.(pheno,prs),summarise,meanp=mean(P),meanratio=mean(ratio),sdratio=sd(ratio),meanr2=mean(PRS.R2),cvr2=sd(PRS.R2/mean(PRS.R2)),meanthresh=mean(Threshold),meanlogp=mean(-log10(Threshold)), sdthresh=sd(Threshold),sdlogp=sd(-log10(Threshold)), sdsnp=sd(Num_SNP),meansnp=mean(Num_SNP))
+    dsummary=ddply(data,.(pheno,prs),summarise,meanp=mean(P),meanratio=mean(ratio),sdratio=sd(ratio),meanr2=mean(PRS.R2),cvr2=sd(PRS.R2/mean(PRS.R2)),meanthresh=mean(Threshold),meanlogp=mean(-log10(Threshold)), sdthresh=sd(Threshold),sdlogp=sd(-log10(Threshold)), sdsnp=sd(Num_SNP),meansnp=mean(Num_SNP))
     dsummary$lower=dsummary$meanratio-dsummary$sdratio*1.96
     dsummary$upper=dsummary$meanratio+dsummary$sdratio*1.96
     # write.table(dsummary,paste0(wdir,"/SoftImpAll.downsampled.txt"),sep="\t",quote=F,row.names=T,col.names=T)
