@@ -93,6 +93,7 @@ PRS from following training GWAS are used for comparison with PRS from observed,
 PRS from observed, imputed and MTAG GWAS on LifetimeMDD in UKBiobank are used to predict MDD in the following cohorts
 
 |ABBREVIATION	|COLLECTION STRATEGY	|STUDY TYPE	|N	|Neff	|SAMPLE PREV	|POPULATION PREV|
+|---|---|---|---|---|---|---|
 |[iPSYCH](https://www.nature.com/articles/s41593-018-0320-0)|Danish Health registry|case-ascertained, screened-controls|65601	|63475|0.41|[0.15](https://jamanetwork.com/journals/jama/fullarticle/196765)|
 |[ATLAS](https://genomemedicine.biomedcentral.com/articles/10.1186/s13073-022-01106-x)|Insurance code, billing codes, ICD10 codes|Electronic health record|19996|6578|0.09|[0.09](https://genomemedicine.biomedcentral.com/articles/10.1186/s13073-022-01106-x)|
 |[CONVERGE](https://www.nature.com/articles/nature14659)|Hospital based psychiatrist diagnosis|case-ascertained, screened-controls|10502|10502|0.50	|[0.08](https://www.nature.com/articles/nature14659)|
