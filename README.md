@@ -115,7 +115,7 @@ R scripts for gathering and summarising PRS prediction R2s across folds is in th
 
 We downsampled GPpsy (N=332,629) and SoftImpAll (N=337,126) to N=50K and 100K to investigate the effect of GWAS sample size (for PRS construction) on PRS Pleiotropy. This analysis is described in full in Supplementary Methods of the paper. 
 
-```downsample.R```: scripts used to gather R2s and plot PRS Pleiotropy across different down-sampled Ns, and for plotting Supplementary Figures 9 and 10 
+```downsample.R```: scripts used to gather R2s and plot PRS Pleiotropy across different down-sampled Ns, and for plotting Supplementary Figures 10-12 
 
 ### Same set of SNPs across all PRS analysis 
 We investigated how PRS Pleiotropy will change if we used a single set of SNPs for PRS construction across all GWAS. Two sets of SNPs are chosen:
@@ -123,4 +123,4 @@ We investigated how PRS Pleiotropy will change if we used a single set of SNPs f
 a) 136,563 LD-pruned SNPs (r2 < 0.2) in UKBiobank White-British individuals (used in [FlashPCA](https://github.com/gabraham/flashpca) to generate White-British specific PCs used in all UKBiobank GWAS in this study) 
 b) 91,178-91,316 SNPs at P threshold 0.5 from PGC29 GWAS (threshold determined in [Wray et al 2018](https://www.nature.com/articles/s41588-018-0090-3)) clumped for prediction of LifetimeMDD in UKBiobank (numbers are slightly different per fold in 10-fold cross validation) 
 
-```samesnps.R```: scripts used to gather R2s and plot PRS Pleiotropy across different PRS when a) or b) SNPs are used, and for plotting Supplementary Figure 11 
+```samesnps.R```: scripts used to gather R2s and plot PRS Pleiotropy across different PRS when a) or b) SNPs are used, and for plotting Supplementary Figure 13
