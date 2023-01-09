@@ -80,6 +80,12 @@ done
 
 ## PRS predictions in external cohorts 
 
+|ABBREVIATION	|COLLECTION |STRATEGY	|STUDY |TYPE	|REFERENCE	|N	|Neff	|SAMPLE PREV	|POPULATION PREV	|PREVALENCE REFERENCE|
+|PGC29	|Structured telephone interviews/electronic health records	|case-ascertained, some screened-controls (meta-analysis)	|MDD Working Group of the Psychiatric Genomics Consortium, 2018	|42455	|40627	|0.40	|0.15	|Kessler et al., 2003|
+|23andMe	|Minimal phenotyping: self-report via questionaire 	|unascertained population cohort	|Hyde et al., 2016	|307354	|228033	|0.25	|0.25	|Hyde et al., 2016|
+|iPSYCH 	|Danish Health registry 	|case-ascertained, screened-controls 	|Schork et al, 2019	|65601	|63475	|0.41	|0.15	|Kessler et al., 2003|
+|ATLAS	|Insurance code, billing codes, ICD10 codes 	|Electronic health record 	|Johnson et al, 2021	|19996	|6578	|0.09	|0.09	|Johnson et al, 2021|
+|CONVERGE	|Hospital based psychiatrist diagnosis 	case-ascertained, screened-controls 	|CONVERGE Consortium, 2015	|10502	|10502	|0.50	|0.08	|CONVERGE Consortium, 2015|
 
 ## PRS Pleiotropy 
 
