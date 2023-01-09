@@ -78,15 +78,28 @@ PRSice_linux --base $a.ma --cov $covar --num-auto 22 \
 done 
 ```
 
-## PRS predictions in external cohorts 
+## PRS prediction using training GWAS from external cohorts 
+
+PRS from following training GWAS are used for comparison with PRS from observed, imputed and MTAG GWAS on LifetimeMDD in UKBiobank
 
 |ABBREVIATION	|COLLECTION STRATEGY	|STUDY TYPE	|N	|Neff	|SAMPLE PREV	|POPULATION PREV|
 |---|---|---|---|---|---|---|
 |[PGC29](https://www.nature.com/articles/s41588-018-0090-3)|Structured telephone interviews/electronic health records|case-ascertained, some screened-controls (meta-analysis)|42455|40627|0.40|[0.15](https://jamanetwork.com/journals/jama/fullarticle/196765)|
 |[23andMe](https://www.nature.com/articles/ng.3623)|Minimal phenotyping: self-report via questionaire|unascertained population cohort|307354|228033|0.25	|[0.25](https://www.nature.com/articles/ng.3623)|
+
+
+## PRS predictions in external cohorts 
+
+PRS from observed, imputed and MTAG GWAS on LifetimeMDD in UKBiobank are used to predict MDD in the following cohorts
+
+|ABBREVIATION	|COLLECTION STRATEGY	|STUDY TYPE	|N	|Neff	|SAMPLE PREV	|POPULATION PREV|
 |[iPSYCH](https://www.nature.com/articles/s41593-018-0320-0)|Danish Health registry|case-ascertained, screened-controls|65601	|63475|0.41|[0.15](https://jamanetwork.com/journals/jama/fullarticle/196765)|
 |[ATLAS](https://genomemedicine.biomedcentral.com/articles/10.1186/s13073-022-01106-x)|Insurance code, billing codes, ICD10 codes|Electronic health record|19996|6578|0.09|[0.09](https://genomemedicine.biomedcentral.com/articles/10.1186/s13073-022-01106-x)|
-|[CONVERGE](https://www.nature.com/articles/nature14659)|Hospital based psychiatrist diagnosis 	case-ascertained, screened-controls|10502|10502|0.50	|[0.08](https://www.nature.com/articles/nature14659)|
+|[CONVERGE](https://www.nature.com/articles/nature14659)|Hospital based psychiatrist diagnosis|case-ascertained, screened-controls|10502|10502|0.50	|[0.08](https://www.nature.com/articles/nature14659)|
+|UKB-EUR|Online mental health questionnaire|volunteer self-assessment|10193|8016|0.27|0.27|
+|UKB-ASN|Online mental health questionnaire|volunteer self-assessment|334|202|0.19|0.19|
+|UKB-AFN|Online mental health questionnaire|volunteer self-assessment|687|401|0.18|0.18|
+
 
 ## PRS Pleiotropy 
 
