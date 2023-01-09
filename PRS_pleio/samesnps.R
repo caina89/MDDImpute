@@ -16,7 +16,7 @@ asummary=ddply(adata,.(pheno,prs),summarise,meanp=mean(P),meanratio=mean(ratio),
 
 ## PRS Pleiotropy using PGC29 SNPs (SNPs clumped for prediction of LifetimeMDD at P threshold 0.5) ld LD pruned SNPs (r2<0.2) 
 
-snps=c("pgc29SNPs", "ld2") 
+snps=c("PGCsnps", "LD2") 
 
 for (snp in snps){ 
     ## get data 
