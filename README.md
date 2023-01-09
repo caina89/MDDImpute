@@ -8,7 +8,7 @@ Code used for SoftImpute imputation can be found at https://github.com/andywdahl
 
 ## GWAS 
 
-All GWAS in the paper are performed using PLINK2
+All GWAS in the paper are performed using [PLINK2](https://www.cog-genomics.org/plink/2.0/)
 
 ```
 #GWAS on imputed/observed quantitative phenotypes 
