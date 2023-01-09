@@ -1,6 +1,6 @@
 # MDDImpute
 
-Steps to reproduce analyses in MDD phenotype imputation paper: Dahl A., et al, Phenotype integration improves power and preserves specificity in biobank-based genetic studies of MDD, BioRxiv 2022 (https://www.biorxiv.org/content/10.1101/2022.08.15.503980v1.abstract)
+Steps to reproduce analyses in MDD phenotype imputation paper: [Dahl A., et al, Phenotype integration improves power and preserves specificity in biobank-based genetic studies of MDD, BioRxiv 2022](https://www.biorxiv.org/content/10.1101/2022.08.15.503980v1.abstract)
 
 ## Phenotype Imputation 
 
@@ -19,7 +19,7 @@ plink2 --bfile $bfile --pheno $pfile --1 --logistic hide-covar --covar-variance-
 
 ## MTAG 
 
-MTAG is a weighted multi-GWAS meta-analysis approach that takes summary statistics from single-trait GWAS and outputs trait-specific association statistics, weighing each of the input GWAS by their genetic correlations with each other. Input file format for MTAG: 
+[MTAG](https://www.nature.com/articles/s41588-017-0009-4) is a weighted multi-GWAS meta-analysis approach that takes summary statistics from single-trait GWAS and outputs trait-specific association statistics, weighing each of the input GWAS by their genetic correlations with each other. Input file format for MTAG: 
 
 ```
 snpid	chr	bpos	a1	a2	freq	beta	betase	pval	n
@@ -42,13 +42,13 @@ python mtag.py \
 
 ## Summary statistics 
 
-All summary statistics of GWAS described in the paper (SoftImpute, AutoComplete, MTAG, external cohorts) are available on figshare: https://doi.org/10.6084/m9.figshare.19604335.v1 
+All summary statistics of GWAS described in the paper (SoftImpute, AutoComplete, MTAG, external cohorts) are available on [here](https://doi.org/10.6084/m9.figshare.19604335.v1)
 
 ## PRS predictions in UKBiobank
 
-PRS predictions are run with PRSice (v2) and we take the best p value thresholds for constructing PRS for each prediction run (floating p value threshold across all runs. 
+PRS predictions are run with [PRSice-2](https://choishingwan.github.io/PRSice/) and we take the best p value thresholds for constructing PRS for each prediction run (floating p value threshold across all runs. 
 
-Summary statistics for all GWAS (available on figshare) have the following format (.ma format also used in SbayesR). All GWAS (in UKBiobank) are performed only on SNPs with INFO score > 0.9 and MAF > 0.05. 
+Summary statistics for all GWAS (available on figshare) have the following format (.ma format also used in [SbayesR](https://cnsgenomics.com/software/gctb/#Tutorial)). All GWAS (in UKBiobank) are performed only on SNPs with INFO score > 0.9 and MAF > 0.05. 
 
 ```
 SNP	A1	A2	freq	b	se	p	N
@@ -59,7 +59,7 @@ rs4081333	T	C	0.0926773784007	0.0295976364389436	0.0267	0.2681	42455
 rs12064046	G	T	0.091	0.0307994715535284	0.0268	0.2507	42455
 ```
 
-We use the following PRSice command line, switching --binary-target T/F for binary and quantitative target phenotypes. We performed PRS in 10-fold cross validation in UKBiobank for in-sample PRS analysis, so phenotype/genotype files are in folds, to do this without having separate files one can use --remove/--keep options 
+We use the following PRSice-2 command line, switching --binary-target T/F for binary and quantitative target phenotypes. We performed PRS in 10-fold cross validation in UKBiobank for in-sample PRS analysis, so phenotype/genotype files are in folds, to do this without having separate files one can use --remove/--keep options 
 
 ```
 a=$GWAS ## summary statistics for SoftImpute, Autocomplete or MTAG GWAS 
