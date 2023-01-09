@@ -90,7 +90,7 @@ PRS from following training GWAS are used for comparison with PRS from observed,
 
 ## PRS predictions in external cohorts 
 
-PRS from observed, imputed and MTAG GWAS on LifetimeMDD in UKBiobank are used to predict MDD in the following cohorts; PRSice-2 is used for these PRS, same as shown as above. Confidence intervals for prediction R2s are derived using bootstrapping shown in ```bootstrap.R``` in the ```PRS_predict``` directory 
+PRS from observed, imputed and MTAG GWAS on LifetimeMDD in UKBiobank are used to predict MDD in the following cohorts; PRSice-2 is used for these PRS, same as shown as above. Confidence intervals for prediction R2s are derived using bootstrapping shown in ```getr2sd.R``` in the ```PRS_predict``` directory 
 
 |ABBREVIATION	|COLLECTION STRATEGY	|STUDY TYPE	|N	|Neff	|SAMPLE PREV	|POPULATION PREV|
 |---|---|---|---|---|---|---|
