@@ -115,7 +115,7 @@ R scripts for gathering and summarising PRS prediction R2s across folds is in th
 
 We downsampled GPpsy (N=332,629) and SoftImpAll (N=337,126) to N=50K and 100K to investigate the effect of GWAS sample size (for PRS construction) on PRS Pleiotropy. This analysis is described in full in Supplementary Methods of the paper. 
 
-```downsample.R```: scripts used to gather R2s and plot PRS Pleiotropy across different down-sampled Ns, and for plotting Extended Data Figure 5 (```Downsample.PRSPleio.pdf```), and Supplementary Figures 10-11 (```GPpsy.Pthreshold.pdf``` and ``SoftImpAll.Pthreshold.pdf```)
+```downsample.R```: scripts used to gather R2s and plot PRS Pleiotropy across different down-sampled Ns, and for plotting Extended Data Figure 5 (```Downsample.PRSPleio.pdf```), and Supplementary Figures 10-11 (```GPpsy.Pthreshold.pdf``` and ```SoftImpAll.Pthreshold.pdf```)
 
 ### Same set of SNPs across all PRS analysis 
 We investigated how PRS Pleiotropy will change if we used a single set of SNPs for PRS construction across all GWAS. Two sets of SNPs are chosen:
