@@ -5,16 +5,10 @@ cols=c( 'orange3', 'orange1', 'grey', "black", 'blue1', 6, 'blue4', 'cornflowerb
 
 ## wdir = prs output directory 
 
-quantphenos=read.table("pheno.quant.txt",as.is=T,header=F)
-binaryphenos=read.table("pheno.binary.txt",as.is=T,header=F)
-phenos=c(quantphenos$V1,binaryphenos$V1)
+phenos=read.table("sigphenos.txt")
+phenos=c(as.character(phenos$x),"LifetimeMDD")
 
-## PRS Pleiotropy calculated for best p value thresholds  
-
-adata=read.table("bestp.PRSPleio.raw.txt"),header=T,as.is=T)
-asummary=ddply(adata,.(pheno,prs),summarise,meanp=mean(P),meanratio=mean(ratio),sdratio=sd(ratio))
-
-## PRS Pleiotropy using PGC29 SNPs (SNPs clumped for prediction of LifetimeMDD at P threshold 0.5) ld LD pruned SNPs (r2<0.2) 
+## PRS Pleiotropy using PGC29 SNPs (SNPs clumped for P threshold 1) or LD pruned SNPs (r2<0.2) 
 
 snps=c("PGCsnps", "LD2") 
 
@@ -50,14 +44,11 @@ for (snp in snps){
     # write.table(dsummary,paste0(wdir,"/SoftImpAll.downsampled.txt"),sep="\t",quote=F,row.names=T,col.names=T)
     write.table(dsummary,paste0(wdir,"/",snp,".PRSPleio.summary.txt"),sep="\t",quote=F,row.names=T,col.names=T)
 
-    ## get phenotypes that have mean PRS prediction P value < 0.05 at best p value thresholds  
+    ## order phenotypes by PRS Pleiotropy per PRS   
     prs=unique(dsummary$prs)
     odata=NULL
     for (p in prs){
       pdata=dsummary[which(dsummary$prs==p),]
-      fdata=asummary[which(asummary$prs==p),]
-      puse=fdata$pheno[which(fdata$meanp<0.05)]
-      pdata=pdata[which(pdata$pheno%in%puse),]
       pdata=pdata[order(pdata$meanratio,decreasing=T),]
       pdata$order=seq(1,nrow(pdata))
       odata=rbind(odata,pdata)
