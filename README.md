@@ -6,6 +6,8 @@ Steps to reproduce analyses in MDD phenotype imputation paper: [Dahl A., et al, 
 
 Code used for [SoftImpute](https://cran.r-project.org/web/packages/softImpute/index.html) imputation can be found at https://github.com/andywdahl/mdd-impute 
 
+Documentation for [AutoComplete](https://www.biorxiv.org/content/10.1101/2022.08.15.503991v1) can be found at https://github.com/sriramlab/AutoComplete 
+
 ## GWAS 
 
 All GWAS in the paper are performed using [PLINK2](https://www.cog-genomics.org/plink/2.0/)
