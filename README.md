@@ -42,7 +42,7 @@ python mtag.py \
 
 ## Summary statistics 
 
-All summary statistics of GWAS described in the paper (SoftImpute, AutoComplete, MTAG, external cohorts) are available on [here](https://doi.org/10.6084/m9.figshare.19604335.v1)
+All summary statistics of GWAS described in the paper (SoftImpute, AutoComplete, MTAG, external cohorts) are available [here](https://doi.org/10.6084/m9.figshare.19604335.v1)
 
 ## PRS predictions in UKBiobank
 
