@@ -124,4 +124,4 @@ a) 136,563 LD-pruned SNPs (r2 < 0.2) in UKBiobank White-British individuals (use
 
 b) 91,315 SNPs at P threshold 1 (clumped) from PGC29 GWAS (threshold determined in [Wray et al 2018](https://www.nature.com/articles/s41588-018-0090-3)) 
 
-```samesnps.R```: scripts used to gather R2s and plot PRS Pleiotropy across different PRS when a) or b) SNPs are used, and for plotting Extended Data Figure 6 (```PGC.PRSPleio.pdf``` and ```LD2.PRSPleio.pdf```).
+```samesnps.R```: scripts used to gather R2s and plot PRS Pleiotropy across different PRS when a) or b) SNPs are used, and for plotting Extended Data Figure 6 (```PGCsnps.PRSPleio.pdf``` and ```LD2.PRSPleio.pdf```).
