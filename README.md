@@ -122,7 +122,7 @@ We investigated how PRS Pleiotropy will change if we used a single set of SNPs f
 
 a) 136,563 LD-pruned SNPs (r2 < 0.2) in UKBiobank White-British individuals (used in [FlashPCA](https://github.com/gabraham/flashpca) to generate White-British specific PCs used in all UKBiobank GWAS in this study) 
 
-b) xx SNPs at P threshold 0.05 from PGC29 GWAS (threshold determined in [Wray et al 2018](https://www.nature.com/articles/s41588-018-0090-3)) clumped for prediction of LifetimeMDD in UKBiobank (numbers are slightly different per fold in 10-fold cross validation) 
+b) 15,998-16,015 SNPs at P threshold 0.05 from PGC29 GWAS (threshold determined in [Wray et al 2018](https://www.nature.com/articles/s41588-018-0090-3)) clumped for prediction of LifetimeMDD in UKBiobank (numbers are slightly different per fold in 10-fold cross validation) 
 
 ```
 ## For getting clumped SNPs at P < 0.05 from PGC29 GWAS 
