@@ -121,6 +121,17 @@ We downsampled GPpsy (N=332,629) and SoftImpAll (N=337,126) to N=50K and 100K to
 We investigated how PRS Pleiotropy will change if we used a single set of SNPs for PRS construction across all GWAS. Two sets of SNPs are chosen:
 
 a) 136,563 LD-pruned SNPs (r2 < 0.2) in UKBiobank White-British individuals (used in [FlashPCA](https://github.com/gabraham/flashpca) to generate White-British specific PCs used in all UKBiobank GWAS in this study) 
+
 b) xx SNPs at P threshold 0.05 from PGC29 GWAS (threshold determined in [Wray et al 2018](https://www.nature.com/articles/s41588-018-0090-3)) clumped for prediction of LifetimeMDD in UKBiobank (numbers are slightly different per fold in 10-fold cross validation) 
+
+```/home/hpc/na.cai/bin/PRSice_linux \
+--a1 A1 --a2 A2 --pvalue p --snp SNP --stat b --beta --base-maf freq:0.05 \
+--base PGC29.ma --cov $covar --num-auto 22 \
+--bar-levels 0.05 --fastscore --no-full --print-snp \
+--clump-kb 250kb --clump-p 0.05 --clump-r2 0.100000 \
+--out $outdir/LifetimeMDD/PGC29.test$test.p05.prs \
+--pheno $phendir/test$test.LifetimeMDD.phen \
+--target $genodir/tenfold/allchr.test$test --binary-target F \
+--thread 1```
 
 ```samesnps.R```: scripts used to gather R2s and plot PRS Pleiotropy across different PRS when a) or b) SNPs are used, and for plotting Extended Data Figure 6 (```PGC.PRSPleio.pdf``` and ```LD2.PRSPleio.pdf```).
