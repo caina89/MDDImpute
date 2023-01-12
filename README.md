@@ -48,7 +48,7 @@ All summary statistics of GWAS described in the paper (SoftImpute, AutoComplete,
 
 ## PRS predictions in UKBiobank
 
-PRS predictions are run with [PRSice-2](https://choishingwan.github.io/PRSice/) and we take the best p value thresholds for constructing PRS for each prediction run (floating p value threshold across all runs. 
+PRS predictions are run with [PRSice-2](https://choishingwan.github.io/PRSice/) and we take the best p value thresholds for constructing PRS for each prediction (floating p value threshold). 
 
 Summary statistics for all GWAS (available on figshare) have the following format (.ma format also used in [SbayesR](https://cnsgenomics.com/software/gctb/#Tutorial)). All GWAS (in UKBiobank) are performed only on SNPs with INFO score > 0.9 and MAF > 0.05. 
 
@@ -106,7 +106,7 @@ PRS from observed, imputed and MTAG GWAS on LifetimeMDD in UKBiobank are used to
 
 ## PRS Pleiotropy 
 
-R scripts for gathering and summarising PRS prediction R2s across folds is in the ```PRS_pleio``` directory:
+R scripts for gathering and summarising PRS prediction R2s across folds are in the ```PRS_pleio``` directory:
 
 ### PRS Pleiotropy analysis 
 
@@ -115,7 +115,7 @@ R scripts for gathering and summarising PRS prediction R2s across folds is in th
 
 ### Downsampling analysis 
 
-We downsampled GPpsy (N=332,629) and SoftImpAll (N=337,126) to N=50K and 100K to investigate the effect of GWAS sample size (for PRS construction) on PRS Pleiotropy. This analysis is described in full in Supplementary Methods of the paper. 
+We downsampled GPpsy (N=332,629) and SoftImpAll (N=337,126) to N=50K and 100K to investigate the effect of GWAS sample size (for PRS construction) on PRS Pleiotropy. This analysis is described in full in Supplementary Note of the paper. 
 
 ```downsample.R```: scripts used to gather R2s and plot PRS Pleiotropy across different down-sampled Ns, and for plotting Extended Data Figure 5 (```Downsample.PRSPleio.pdf```), and Supplementary Figures 10-11 (```GPpsy.Pthreshold.pdf``` and ```SoftImpAll.Pthreshold.pdf```)
 
