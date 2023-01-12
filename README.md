@@ -120,7 +120,7 @@ We downsampled GPpsy (N=332,629) and SoftImpAll (N=337,126) to N=50K and 100K to
 ```downsample.R```: scripts used to gather R2s and plot PRS Pleiotropy across different down-sampled Ns, and for plotting Extended Data Figure 5 (```Downsample.PRSPleio.pdf```), and Supplementary Figures 10-11 (```GPpsy.Pthreshold.pdf``` and ```SoftImpAll.Pthreshold.pdf```)
 
 ### Same set of SNPs across all PRS analysis 
-We investigated how PRS Pleiotropy will change if we used a single set of SNPs for PRS construction across all GWAS. Two sets of SNPs are chosen:
+We investigated how PRS Pleiotropy will change if we used a single set of SNPs for PRS construction rather than a floating P value threshold. Two sets of SNPs are chosen:
 
 a) 136,563 LD-pruned SNPs (r2 < 0.2) in UKBiobank White-British individuals (used in [FlashPCA](https://github.com/gabraham/flashpca) to generate White-British specific PCs used in all UKBiobank GWAS in this study) 
 
